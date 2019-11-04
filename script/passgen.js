@@ -5,7 +5,8 @@ function PassGen(){
         rand = Math.round(Math.random() *characters.length)
         password = password.concat(characters[rand]);
     }
-    document.getElementById("outPut2") = password;
+
+    document.getElementById("outPut2").innerHTML = password;
 
 
 }
