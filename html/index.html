@@ -2,70 +2,69 @@
 <!-- FYI must be serverd via HTTPS to function properly -->
 <html>
 <head>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="password.js"></script>
+
+<script src="Mellt.js"></script>
+<!-- Make sure common-passwords.js is included AFTER Mellt.js -->
+<script src="common-passwords.js"></script>
+<script>
+var mellt = new Mellt();
+document.getElementById("msg").innerHTML = "0 days";
+document.getElementById("msg").style.color = "red";
+
+function StrengthCheck(password) {
+  var daysToCrack = mellt.CheckPassword(password);
+  if (daysToCrack < 30){
+    document.getElementById("msg").innerHTML = daysToCrack+" days";
+    document.getElementById("msg").style.color = "red";
+  }else if(daysToCrack < 365){
+    daysToCrack = daysToCrack/30.0;
+    document.getElementById("msg").innerHTML = Math.round(daysToCrack * 100) / 100    +" months";
+    document.getElementById("msg").style.color = "orange";
+  } else if (daysToCrack > 2739726){
+    document.getElementById("msg").innerHTML = "Heat death of the Universe";
+    document.getElementById("msg").style.color = "green";
+  } else {
+    daysToCrack = daysToCrack/365.0;
+    document.getElementById("msg").innerHTML = Math.round(daysToCrack * 100) / 100+" years";
+    document.getElementById("msg").style.color = "green";
+  }
+}
+
+</script>
+
+
 <meta charset='UTF-8'/>
-  <title>Pwned Password API lookup.</title>
+  <title>Wiley Password API lookup.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">  
-<style>
-  * {
-    box-sizing: border-box;
-  }
-  
-  html, body {
-   background-color:lightblue;
-   cursor:pointer;
-   height:100%;
-   width:100%;
-   padding:0;
-   margin:0;
-  }
-  
-  b {
-   color : red;
-  }
-  
-  #bodyDiv {
-    border:2px solid blue;
-    border-radius:7px;
-    height:150px;
-    width:600px;
-    margin:80px;
-    padding:25px;
-    background-color:darkgrey;
-    color:black;
-  }
-  
-   @media only screen and (max-width : 700px) {
-    
-   #bodyDiv {
-    border:2px solid blue;
-    border-radius:7px;
-    width:100%;
-    height:80%;
-    margin:0;
-    padding:25px;
-    background-color:darkgrey;
-    color:black;
-  }
-    
-   #hash {
-     font-size:10px;
-   } 
-    
-   }
-  
+
 </style>
 </head>
 <body>
-<div id="bodyDiv">
-<span title="Password does not leave the browser, but it will show on the screen.">?</span>
-<input id="inPut" type="text" placeholder="Password...">
-<button title="Click to send part of hashed password.">Check</button>
-<div>
+    <br><br><br><br><br>
+  <center>
+    <h1>Password Check</h1>
+<div id="bodyDiv" style="width:25%;">
+  <center>
+<input id="inPut" onkeyup="StrengthCheck(this.value);" class="form-control" type="password" placeholder="Password...">
+<p>Time to break: <span id="msg"></span></p>
+<br>
+<button title="Click to send part of hashed password." class="btn btn-outline-primary" >Check</button>
+  </center>
+<div>   
   <p id="outPut"></p>
 </div>
 
 </div>
-<a href="https://github.com/mikepound/pwned-search">The inspiration!</a>
+</center>
   <script>
 let first = "";
 let last = "";
@@ -125,9 +124,9 @@ digestMessage(text).then(digestValue => {
   .then(function(arr){
    
      document.getElementById("outPut")
-          .innerHTML = "The password : " + text + 
+          .innerHTML = //"The password : " + text + 
           "SHA1 Hash : " + hash + 
-          "<br>Was not found!";
+          "<br><br>Your password was not found!";
    
      arr.forEach((s)=>{
       
@@ -136,9 +135,9 @@ digestMessage(text).then(digestValue => {
        if(a[0] == last) {
         
         document.getElementById("outPut")
-           .innerHTML = "The password : " + text + 
+           .innerHTML = //"The password : " + text + 
            "<br>SHA1 Hash : <span id='hash'>" + hash + 
-           "</span><br>Was found <b>" + a[1] + "</b> times!";
+           "</span><br><br>Your password was found <b>" + a[1] + "</b> times!";
            
         return true;
         
