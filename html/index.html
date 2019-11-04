@@ -21,6 +21,7 @@ document.getElementById("msg").innerHTML = "0 days";
 document.getElementById("msg").style.color = "red";
 
 function StrengthCheck(password) {
+  runCheck();
   var daysToCrack = mellt.CheckPassword(password);
   if (daysToCrack < 30){
     document.getElementById("msg").innerHTML = daysToCrack+" days";
@@ -56,9 +57,7 @@ function StrengthCheck(password) {
   <center>
 <input id="inPut" onkeyup="StrengthCheck(this.value);" class="form-control" type="password" placeholder="Password...">
 <p>Time to break: <span id="msg"></span></p>
-<br>
-<button title="Click to send part of hashed password." class="btn btn-outline-primary" >Check</button>
-  </center>
+</center>
 <div>   
   <p id="outPut"></p>
 </div>
@@ -101,7 +100,7 @@ let outPut = document.getElementById("outPut");
 let inPut = document.getElementById("inPut");
 let text = inPut.value;
 if (text === "") return false;
-inPut.value = "";
+//inPut.value = "";
 
   
 digestMessage(text).then(digestValue => {
@@ -122,22 +121,23 @@ digestMessage(text).then(digestValue => {
     return text.split("\r\n");  
   })
   .then(function(arr){
-   
-     document.getElementById("outPut")
+    document.getElementById("outPut")
           .innerHTML = //"The password : " + text + 
           "SHA1 Hash : " + hash + 
-          "<br><br>Your password was not found!";
+          "<br>This password was not found!";
    
      arr.forEach((s)=>{
       
        let a = s.split(":");
        
        if(a[0] == last) {
+        document.getElementById("msg").innerHTML = "Less than a second.";
+        document.getElementById("msg").style.color = "red";
         
         document.getElementById("outPut")
            .innerHTML = //"The password : " + text + 
-           "<br>SHA1 Hash : <span id='hash'>" + hash + 
-           "</span><br><br>Your password was found <b>" + a[1] + "</b> times!";
+           "SHA1 Hash : <span id='hash'>" + hash + 
+           "</span><br>This password was found <b>" + a[1] + "</b> times!";
            
         return true;
         
