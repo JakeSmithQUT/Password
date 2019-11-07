@@ -4,6 +4,7 @@
 <head>
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="./CSS/default.css">
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -23,7 +24,7 @@ document.getElementById("msg").style.color = "red";
 
 function StrengthCheck(password) {
   runCheck();
-  PassGen();
+
   var daysToCrack = mellt.CheckPassword(password);
   if (daysToCrack < 30){  
     document.getElementById("msg").innerHTML = daysToCrack+" days";
@@ -52,21 +53,20 @@ function StrengthCheck(password) {
 </style>
 </head>
 <body>
-    <br><br><br><br><br>
-  <center>
-    <h1>Password Check</h1>
-<div id="bodyDiv" style="width:25%;">
-  <center>
-<input id="inPut" onkeyup="StrengthCheck(this.value);" class="form-control" type="password" placeholder="Password...">
-<p>Time to break: <span id="msg"></span></p>
-</center>
-<div>   
-  <p id="outPut"></p>
-  <p id="outPut2">hello</p>
+
+    
+<div id="bodyDiv">
+  <h1>Password Check</h1>
+  <input id="inPut" onkeyup="StrengthCheck(this.value);" class="form-control" type="password" placeholder="Password...">
+  <h3>Time to break: <span id="msg"></span></h3>
+  <div>   
+    <h4 id="outPut"></h4>
+    <button type="button" onclick=" PassGen()" class="btn btn-outline-success btn-lg">Generate a password</button>
+    <br>
+    <h2 id="outPut2"></h2>
 </div>
 
 </div>
-</center>
   <script>
 let first = "";
 let last = "";
@@ -126,7 +126,7 @@ digestMessage(text).then(digestValue => {
   .then(function(arr){
     document.getElementById("outPut")
           .innerHTML = //"The password : " + text + 
-          "SHA1 Hash : " + hash + 
+          //"SHA1 Hash : " + hash + 
           "<br>This password was not found!";
    
      arr.forEach((s)=>{
@@ -135,12 +135,13 @@ digestMessage(text).then(digestValue => {
        
        if(a[0] == last) {
         document.getElementById("msg").innerHTML = "Less than a second.";
-        document.getElementById("msg").style.color = "red";
+        document.getElementById("msg").style.color = "Red";
         
         document.getElementById("outPut")
-           .innerHTML = //"The password : " + text + 
-           "SHA1 Hash : <span id='hash'>" + hash + 
-           "</span><br>This password was found <b>" + a[1] + "</b> times!";
+           .innerHTML = "</span><br>This password was found <b>" + a[1] + "</b> times!";//"The password : " + text + 
+
+           //"SHA1 Hash : <span id='hash'>" + hash + 
+          
            
         return true;
         
