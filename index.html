@@ -60,7 +60,8 @@ function StrengthCheck(password) {
   <input id="inPut" onkeyup="StrengthCheck(this.value);" class="form-control" type="password" placeholder="Password...">
   <h3>Time to break: <span id="msg"></span></h3>
   <div>   
-    <h4 id="outPut"></h4>
+    <h4 id="outPut">Hello</h4>
+    <br>
     <button type="button" onclick=" PassGen()" class="btn btn-outline-success btn-lg">Generate a password</button>
     <br>
     <h2 id="outPut2"></h2>
@@ -124,10 +125,11 @@ digestMessage(text).then(digestValue => {
     return text.split("\r\n");  
   })
   .then(function(arr){
+    document.getElementById("outPut").style.visibility = "visible";
     document.getElementById("outPut")
           .innerHTML = //"The password : " + text + 
           //"SHA1 Hash : " + hash + 
-          "<br>This password was not found!";
+          "This password was not found!";
    
      arr.forEach((s)=>{
       
@@ -137,8 +139,9 @@ digestMessage(text).then(digestValue => {
         document.getElementById("msg").innerHTML = "Less than a second.";
         document.getElementById("msg").style.color = "Red";
         
+        document.getElementById("outPut").style.visibility = "visible";
         document.getElementById("outPut")
-           .innerHTML = "</span><br>This password was found <b>" + a[1] + "</b> times!";//"The password : " + text + 
+           .innerHTML = "</span>This password was found <b>" + a[1] + "</b> times!";//"The password : " + text + 
 
            //"SHA1 Hash : <span id='hash'>" + hash + 
           

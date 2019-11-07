@@ -7,6 +7,9 @@ function PassGen(){
     }
 
     document.getElementById("outPut2").innerHTML = password;
+    while(document.getElementById("outPut2").innerHTML.includes('undefined')){
+        PassGen(); 
+    }
 
 
 }
