@@ -22,9 +22,10 @@ var mellt = new Mellt();
 document.getElementById("msg").innerHTML = "0 days";
 document.getElementById("msg").style.color = "red";
 
-function StrengthCheck(password) {
-  runCheck();
 
+function StrengthCheck(password) {
+  //runCheck();
+  browserCheck();
   var daysToCrack = mellt.CheckPassword(password);
   if (daysToCrack < 30){  
     document.getElementById("msg").innerHTML = daysToCrack+" days";
@@ -69,9 +70,14 @@ function StrengthCheck(password) {
 
 </div>
   <script>
+var sBrowser, sUsrAg = navigator.userAgent;
+if (sUsrAg.indexOf("Edge") > -1) {
+  alert('For full website functionality use the Google Chrome browser.');
+}
 let first = "";
 let last = "";
 let hash = "";
+var sBrowser, sUsrAg = navigator.userAgent;
 function hexString(buffer) {
   // creates an array of 8-bit unsigned integers
   const byteArray = new Uint8Array(buffer);
@@ -99,6 +105,13 @@ function digestMessage(message) {
   return window.crypto.subtle.digest('SHA-1', data);
 }
 
+function browserCheck(){
+  if (!(sUsrAg.indexOf("Edge") > -1)) {
+    runCheck();
+  }
+}
+
+
 function runCheck() {
 let outPut = document.getElementById("outPut");
 let inPut = document.getElementById("inPut");
@@ -106,7 +119,6 @@ let text = inPut.value;
 if (text === "") return false;
 //inPut.value = "";
 
-  
 digestMessage(text).then(digestValue => {
   hash = hexString(digestValue);
   first = hash.substring(0, 5);
