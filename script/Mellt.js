@@ -200,9 +200,9 @@ Mellt.prototype = {
 		// If it's going to take more than a billion days to crack, just return a billion. This
 		// helps when code outside this function isn't using bcmath. Besides, if the password 
 		// can survive 2.7 million years it's probably ok.
-		if (days>1000000000) {
-			return 1000000000;
-		}
+		//if (days>1000000000) {
+		//	return 1000000000;
+		//}
 
 		return Math.round(days);
 

@@ -35,8 +35,62 @@ function StrengthCheck(password) {
     daysToCrack = daysToCrack/30.0;
     document.getElementById("msg").innerHTML = Math.round(daysToCrack * 100) / 100    +" months";
     document.getElementById("msg").style.color = "orange";
-  } else if (daysToCrack > 2739726){
-    document.getElementById("msg").innerHTML = "Heat death of the Universe";
+  } else if (daysToCrack > 1000000000000000000000000000000000000000000000000000000000000000000){
+    document.getElementById("msg").innerHTML = "Heat death of the universe";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000000000000000000000000000000000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000000000000000000000000000000000000000000000000)*100)/100+" Novemdecillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000000000000000000000000000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000000000000000000000000000000000000000000)*100)/100+" Octodecillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000000000000000000000000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000000000000000000000000000000000000000)*100)/100+" Septendecillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000000000000000000000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000000000000000000000000000000000000)*100)/100+" Sexdecillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000000000000000000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000000000000000000000000000000000)*100)/100+" Quindecillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000000000000000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000000000000000000000000000000)*100)/100+" Quattuordecillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000000000000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000000000000000000000000000)*100)/100+" Tredecillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000000000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000000000000000000000000)*100)/100+" Duodecillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000000000000000000000)*100)/100+" Undecillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000000000000000000)*100)/100+" Duodecillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000000000000000)*100)/100+" Decillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000000000000)*100)/100+" Nonillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000000000)*100)/100+" Octillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000000)*100)/100+" Septillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000000)*100)/100+" Sextillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000000)*100)/100+" Quadrillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000000)*100)/100+" Trillion years";
+    document.getElementById("msg").style.color = "green";
+  } else if (daysToCrack > 1000000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000)*100)/100+" Billion years";
     document.getElementById("msg").style.color = "green";
   } else {
     daysToCrack = daysToCrack/365.0;
