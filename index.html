@@ -92,6 +92,9 @@ function StrengthCheck(password) {
   } else if (daysToCrack > 1000000000){
     document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000000)*100)/100+" Billion years";
     document.getElementById("msg").style.color = "green";
+  }else if (daysToCrack > 1000000){
+    document.getElementById("msg").innerHTML = Math.round(((Math.round(daysToCrack * 100) / 100)/1000000)*100)/100+" Million years";
+    document.getElementById("msg").style.color = "green";
   } else {
     daysToCrack = daysToCrack/365.0;
     document.getElementById("msg").innerHTML = Math.round(daysToCrack * 100) / 100+" years";
